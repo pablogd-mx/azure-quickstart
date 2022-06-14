@@ -1,5 +1,5 @@
-namespace: quickstart-standalone
-cluster_mode: standalone
+namespace: quickstart-connected
+cluster_mode: connected
 mask:
   database_plan: true
   storage_plan: true

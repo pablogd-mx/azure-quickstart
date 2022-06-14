@@ -36,19 +36,19 @@ then
   echo " Installing Operator in Connected Mode on namespace" $AKS_NAMESPACE
   sleep 2
 
-#  ./mxpc-cli base-install --namespace $AKS_NAMESPACE -i $CLUSTER_ID -s $CLUSTER_SECRET --clusterMode $1 --clusterType generic
-#  sleep 2
-#  echo "Configuring Namespace" $AKS_NAMESPACE
-#  ./mxpc-cli apply-config -i $CLUSTER_ID -s $CLUSTER_SECRET -f  configure.yaml
+  ./mxpc-cli base-install --namespace $AKS_NS_Connected -i $CLUSTER_ID -s $CLUSTER_SECRET --clusterMode $1 --clusterType generic
+   sleep 2
+   echo "Configuring Namespace" $AKS_NS_Connected
+  ./mxpc-cli apply-config -i $CLUSTER_ID -s $CLUSTER_SECRET -f  configure.yaml
 #  ##Installing MendixDemoApp
 #  echo "Installing Mendix app"
-#  kubectl apply -f demo.yaml -n $AKS_NAMESPACE
+#  kubectl apply -f demo.yaml -n $AKS_NS_Connected
 
 elif [ "${1}" == "standalone" ];
   then
   echo " Installing Operator in Standalone Mode on namespace" $AKS_NAMESPACE
   echo " Installing Operator in" $AKS_NAMESPACE
-  ./mxpc-cli base-install --namespace $AKS_NAMESPACE --clusterMode standalone --clusterType generic
+  ./mxpc-cli base-install --namespace $AKS_NS_Standalone --clusterMode standalone --clusterType generic
   sleep 2
   echo "Configuring Namespace" $AKS_NAMESPACE
   ./mxpc-cli apply-config -f artifacts/configure-standalone.yaml
