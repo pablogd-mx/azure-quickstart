@@ -13,8 +13,10 @@ export AKS_NS_Connected=quickstart-connected
 export AKS_NS_Standalone=quickstart-standalone
 
 #Tekton
-export PATH_TO_DOWNLOADED_FOLDERS=$(cd -P -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd -P) #Current working directory
+export PATH_TO_HELM=$(cd -P -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd -P) #Current working directory
 export URL_TO_YOUR_REPO_WITHOUT_TAG=pablok8sreg.azurecr.io
 #export YOUR_NAMESPACE=quickstart-aks #Use StandaloneNS
 #export YOUR_NAMESPACE_WITH_PIPELINES=quickstart-aks
 export SOME_UNIQUE_NAME=aks-tkn
+export TEKTON_NAMESPACE=tekton-pipelines
+
