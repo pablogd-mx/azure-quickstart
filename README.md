@@ -19,7 +19,7 @@ Azure Mendix Private Cloud Quickstart
     - kubectl
     - helm
 
-## Note: This has been tested on an Apple Macintosh only
+##### Note: This has been tested on an Apple Macintosh only
 
 # Configurations
 
@@ -56,13 +56,8 @@ Default is connected mode
           or
     . ./do-all.sh standalone
 
-
-
-
 ## Mendix application
 Mendix application will be available at apurl seen in MendixCR or at Ingress ( kubectl get ing -A)
-
-
 
 ## Prometheus
 Available at the external ip address of the prometheus svc port 9090
@@ -80,7 +75,6 @@ http://ab5b2c0d274690ae9d506d21ed876-1145176934.us-east-2.elb.amazonaws.com:9090
 ## Deleting the cluster
 
 `./del-aks-cluster.sh will delete the cluster`
-
 
 ## References
 Install the Mendix components on the cluster using the instructions here - https://docs.mendix.com/developerportal/deploy/private-cloud-cli-non-interactive
