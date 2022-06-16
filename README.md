@@ -24,23 +24,25 @@ Azure Mendix Private Cloud Quickstart
 # Configurations
 
 ## AKS
-### env-aks.sh
+#### env-aks.sh
 
-  `- export AZ_LOCATION=westeurope
+  - export AZ_LOCATION=westeurope
   - export AZ_RESOURCE_GROUP=mendix-test
   - export AZ_CLUSTER_NAME=mendix-quickstart
-  - export AZ_ACR=TODO`
-
+  - export AZ_ACR=TODO
+`
 #Connected Mode
- `- export CLUSTER_ID=TODO
+  
+ - export CLUSTER_ID=TODO
  - export CLUSTER_SECRET=TODO
  - export AKS_NAMESPACE= TODO`
 
 #Tekton
- `- export PATH_TO_HELM= TODO # usually the current working directory
+
+ - export PATH_TO_HELM= TODO # usually the current working directory
  - export URL_TO_YOUR_REPO_WITHOUT_TAG=TODO
  - export YOUR_NAMESPACE=TODO # where Mendix Operator is installed
- - export SOME_UNIQUE_NAME=TODO`
+ - export SOME_UNIQUE_NAME=TODO
 
 
 ## Ensure that you can run mxpc-cli
@@ -69,7 +71,7 @@ http://ab5b2c0d274690ae9d506d21ed876-1145176934.us-east-2.elb.amazonaws.com:9090
 
 
 ## Tekton
-  `- Tekton dashboard will be exposed at port 9097
+  - Tekton dashboard will be exposed at port 9097
   - Tekton listener will be forwarded to port 8080 ( only Generic HTTP listener is installed in the procedure).`
 
 ## Deleting the cluster
