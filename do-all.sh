@@ -4,7 +4,6 @@
 # do-all.sh standalone
 #
 #
-
 [[ -z "${1}" ]] && { echo 'Cluster type not specified. Please type connected or standalone' 1>&2 ; exit 1; }
 
 echo "Creating Cluster in Azure AKS, grab a coffee this will take a while"
@@ -21,14 +20,14 @@ sleep 2
 sleep 10
 
 ### Install Prometheus
-. /install-grafana-prometheus.sh
+. ./install-grafana-prometheus.sh
 sleep 10
 
 echo "Starting Mendix Installation, sit tight...almost there"
 sleep 2
 echo "Downloading MXPC tool"
 sleep 1
-wget -c https://cdn.mendix.com/mendix-for-private-cloud/mxpc-cli/$mxpc_version-$mxpc_os.tar.gz
+wget -c https://cdn.mendix.com/mendix-for-private-cloud/mxpc-cli/mxpc-cli-${MXPC_VERSION}-${MXPC_OS}.tar.gz
 tar -zxvf mxpc-cli*
 
 if [ "${1}" == "connected" ];
@@ -46,26 +45,24 @@ then
 
 elif [ "${1}" == "standalone" ];
   then
-  echo " Installing Operator in Standalone Mode on namespace" $AKS_NAMESPACE
-  echo " Installing Operator in" $AKS_NAMESPACE
+  echo " Installing Operator in Standalone Mode on namespace" $AKS_NS_Standalone
+  echo " Installing Operator in" $AKS_NS_Standalone
   ./mxpc-cli base-install --namespace $AKS_NS_Standalone --clusterMode standalone --clusterType generic
   sleep 2
-  echo "Configuring Namespace" $AKS_NAMESPACE
+  echo "Configuring Namespace" $AKS_NS_Standalone
   ./mxpc-cli apply-config -f artifacts/configure-standalone.yaml
   ##Installing MendixDemoApp
   echo "Installing Mendix app"
-  kubectl apply -f artifacts/demo.yaml -n $AKS_NAMESPACE
+  kubectl apply -f artifacts/demo.yaml -n $AKS_NS_Standalone
   sleep 5
+
   echo "Installing Tekton"
   sleep 5
-  . ./tekton/tekton_install.sh
+ . ./tekton/tekton_install.sh
 else
   echo " Incorrect Cluster type. Please select Connected or Standalone"
 fi
 ##Installing MendixDemoApp
 
 #Installing Grafana
-. ./install-grafana-prometheus.sh
-
-
-
+#. ./install-grafana-prometheus.sh

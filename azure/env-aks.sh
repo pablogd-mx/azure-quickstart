@@ -20,3 +20,7 @@ export URL_TO_YOUR_REPO_WITHOUT_TAG=pablok8sreg.azurecr.io
 export SOME_UNIQUE_NAME=aks-tkn
 export TEKTON_NAMESPACE=tekton-pipelines
 
+#MXPC
+export MXPC_VERSION=2.5.1
+export MXPC_OS=macos-amd64
+
