@@ -38,7 +38,7 @@ then
   ./mxpc-cli base-install --namespace $AKS_NS_Connected -i $CLUSTER_ID -s $CLUSTER_SECRET --clusterMode $1 --clusterType generic
    sleep 2
    echo "Configuring Namespace" $AKS_NS_Connected
-  ./mxpc-cli apply-config -i $CLUSTER_ID -s $CLUSTER_SECRET -f  configure.yaml
+  ./mxpc-cli apply-config -i $CLUSTER_ID -s $CLUSTER_SECRET -f  artifacts/configure-connected.yaml
 #  ##Installing MendixDemoApp
 #  echo "Installing Mendix app"
 #  kubectl apply -f demo.yaml -n $AKS_NS_Connected
