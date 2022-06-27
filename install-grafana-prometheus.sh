@@ -14,6 +14,6 @@ helm upgrade --install loki grafana/loki-stack --version='^2.5.1' --namespace=${
 --set prometheus.nodeExporter.enabled=false,prometheus.alertmanager.enabled=false,prometheus.pushgateway.enabled=false
 
 
-kubectl apply  -f ./artifacts/loki-ingress.yaml
+kubectl apply  -f ./artifacts/loki-grafana.yaml
 #Expose Prometheus
 #kubectl apply -f expose-prometheus.yaml
