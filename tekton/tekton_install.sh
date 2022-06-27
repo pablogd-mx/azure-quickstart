@@ -6,8 +6,6 @@ echo " Creating Tekton Pipeline folder"
 #echo $PATH_TO_HELM
 PATH_TO_HELM=$(cd -P -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd -P) #Current working directory
 URL_TO_YOUR_REPO_WITHOUT_TAG=pablok8sreg.azurecr.io
-#export YOUR_NAMESPACE=quickstart-aks #Use StandaloneNS
-#export YOUR_NAMESPACE_WITH_PIPELINES=quickstart-aks
 SOME_UNIQUE_NAME=aks-tkn
 TEKTON_NAMESPACE=tekton-pipelines
 AKS_NS_Standalone=quickstart-standalone
@@ -54,5 +52,5 @@ kubectl --namespace $TEKTON_NAMESPACE port-forward svc/tekton-dashboard 9097:909
 
 
 echo "Forwarding Tekton Listener to port 8080"
-LISTENER=$(kubectl get pods -A | awk '{print $2}' | grep el-mx-pipeline)
-kubectl --namespace $TEKTON_NAMESPACE port-forward svc/${LISTENER} 8080:8080
+#LISTENER=$(kubectl get pods -A | awk '{print $2}' | grep el-mx-pipeline)
+kubectl --namespace $TEKTON_NAMESPACE port-forward svc/${SOME_UNIQUE_NAME} 8080:8080
